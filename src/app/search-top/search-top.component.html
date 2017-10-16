@@ -1,0 +1,13 @@
+<form (submit)="onSubmit($event)" class="form-inline" novalidate>
+  <input
+    type="text"
+    class="form-control mr-sm-3"
+    placeholder="Search" 
+    [(ngModel)]="term" name="term"
+    />
+      <span class="input-group-btn">
+          <button 
+              type="submit" 
+              class="btn btn-outline-success my-2 my-sm-0">Search</button>
+      </span>
+</form> 

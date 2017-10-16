@@ -1,0 +1,28 @@
+<table class="table table-hover">  
+	<thead class="thead-inverse">
+		<tr> 
+		<th><app-order [(current)]="order" name="size" [(sort)]="sort" (sendOrder)="onGetOrder($event)"></app-order></th>
+		<th><app-order [(current)]="order" name="name" [(sort)]="sort" (sendOrder)="onGetOrder($event)"></app-order></th>
+		<th>Torrent</th>
+		<th>SE</th>
+		<th>LE</th>
+		</tr>
+	</thead>
+  	<tbody>
+		<tr *ngIf="loading" class="table-success">
+			<td colspan="5">Loading...</td>
+		</tr>
+		<tr *ngFor="let item of pirateList">
+			<th scope="row">
+				{{item.size}} 
+			</th>
+			<td> 
+				<span class="badge badge-pill badge-secondary m-2">{{item.category.name}}</span> 
+				{{item.name}}
+			</td> 
+			<td><a [href]="sanitizer.bypassSecurityTrustResourceUrl(item.magnetLink)" class="btn btn-outline-danger">Download</a></td>
+			<td>{{item.seeders}} </td>
+			<td>{{item.leechers}} </td>
+		</tr> 
+	</tbody>
+</table>
